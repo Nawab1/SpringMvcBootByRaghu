@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 import com.example.demo.javabean.Product;
 @Repository
 public interface IProductRepository extends JpaRepository<Product, Integer>{
-
+   Product getProductById(Integer id);
 }
