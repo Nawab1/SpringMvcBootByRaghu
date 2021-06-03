@@ -5,6 +5,7 @@ import java.util.List;
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
@@ -28,21 +29,25 @@ public Integer saveProduct(Product p) {
 }
 
 @Override
+
+
 public List<Product> getAllProducts() {
-	// TODO Auto-generated method stub
-	return null;
+	
+	return productRepo.findAll();
 }
 
 @Override
+@Transactional
+@Modifying
 public void deleteProduct(Integer id) {
-	// TODO Auto-generated method stub
+	productRepo.deleteById(id);
 	
 }
 
 @Override
 public Product getProductById(Integer id) {
-	// TODO Auto-generated method stub
-	return null;
+	
+	return productRepo.getProductById(id);
 }
 	
 }
